@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote for Candidates</title>
+    <link rel="stylesheet" href="../css/user-page.css">
+    <script defer src="../js/user-page.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+</head>
+<body>
+    <header>
+        <h1>Vote for Candidates</h1>
+    </header>
+
+    
+    
+    <div class="content">
+        <h2>Select Exactly Three Candidates</h2>
+        <ul id="candidatesList"></ul>
+        <button id="submitVote" disabled>Submit Vote</button>
+        <p id="message"></p>
+
+      
+        <button id="livePollButton" onclick="goToLivePoll()">Live Poll</button>
+    </div>
+
+    <script>
+
+        function goToLivePoll() {
+            window.location.href = "live-poll.html";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Poll Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../css/live-poll.css">
+</head>
+<body>
+    <header id="livePollHeader">Live Poll Dashboard</header>
+
+    <div class="dashboard-container">
+        <div class="chart-box">
+            <h2>Bar Chart (Votes per Candidate)</h2>
+            <canvas id="voteChart"></canvas>
+        </div>
+        <div class="chart-box">
+            <h2>Pie Chart (Vote Distribution)</h2>
+            <canvas id="pieChart"></canvas>
+        </div>
+        <div class="chart-box">
+            <h2>Doughnut Chart (Vote Percentage)</h2>
+            <canvas id="doughnutChart"></canvas>
+        </div>
+        <div class="chart-box">
+            <h2>Line Chart (Vote Trends Over Time)</h2>
+            <canvas id="lineChart"></canvas>
+        </div>
+    </div>
+
+    <script src="../js/live-poll.js"></script>
+    <script>
+        // Manipulimi me DOM per ndryshimin e ngjyres me baz se zerit
+        const livePollHeader = document.getElementById('livePollHeader');
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+        if (SpeechRecognition) {
+            const recognition = new SpeechRecognition();
+            recognition.lang = 'en-US'; //Gjuha 
+            recognition.continuous = false;
+            recognition.interimResults = false;
+
+            // Kur klikohet "liberPollHeader" te filloj procesi
+            livePollHeader.addEventListener('click', () => {
+                livePollHeader.textContent = 'Listening... 🎤 Say a color!';
+                recognition.start();
+            });
+
+            // Berja e tyre ne shkronja te vogla ku libraria mer ngjyrat dhe i aplikon ato
+            recognition.onresult = (event) => {
+                const color = event.results[0][0].transcript.toLowerCase().trim();
+                if (CSS.supports('color', color)) {
+                    livePollHeader.style.backgroundColor = color;
+                    livePollHeader.textContent = `Live Poll Dashboard - Color: ${color}`;
+                } else {
+                    livePollHeader.textContent = 'Invalid color. Try again!';
+                }
+            };
+
+            // Mirmbajtja e erroreve
+            recognition.onerror = (event) => {
+                console.error('Speech recognition error:', event);
+                livePollHeader.textContent = 'Error. Try again!';
+            };
+
+            recognition.onspeechend = () => {
+                recognition.stop();
+            };
+        } else {
+            livePollHeader.textContent = 'Voice recognition is not supported on this browser.';
+            console.error('SpeechRecognition API not supported.');
+        }
+    </script>
+</body>
+</html>

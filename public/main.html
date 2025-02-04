@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/css-t/main.css">
+    <link rel="stylesheet" href="../css/css-t/fontawesome-all.min.css">
+    
+    <!-- Toastify.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+    <div id="page-wrapper">
+
+    
+        <div id="header-wrapper">
+            <div id="header" class="container">
+
+             
+                <h1 id="logo"><a href="">Sistem Votimi</a></h1>
+
+                
+                <nav id="nav">
+                    <ul>
+                        <li><a href="index.html">Apliko për Kandidat</a></li>
+                        <li class="break"><a href="live-poll.html">Live Poll</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+
+          
+            <section id="hero" class="container">
+                <header>
+                    <h2 style="margin-top: 100px;">Ky është një ndër
+                    <br />
+                    sistemet më të avancuara për votim online.</h2>
+                </header>
+                <p>I krijuar dhe dizajnuar për të ofruar një proces votimi të sigurt dhe transparent për qytetarët e Kosovës.</p>
+            </section>
+        </div>
+
+
+        <div class="wrapper">
+            <div class="login-container">
+                <h1>Regjistrohu ose Kyçu për të marrë pjesë në Votim</h1>
+                <input type="text" id="username" placeholder="Enter Username">
+                <input type="password" id="password" placeholder="Enter Password">
+                <button onclick="login()" style="background-color: rgba(0, 128, 0, 0.562); color: white;">Login</button>
+                <button onclick="register()" style="background-color: rgba(12, 92, 197, 0.589); color: white;">Register</button>
+                <p class="error" id="error-message"></p>
+                
+            </div>
+            <div class="container">
+                <div class="row">
+                    <section class="col-6 col-12-narrower feature">
+                        <header>
+                            <img style="width: 200px ;border-radius: 50%;height: 200px;" src="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg" alt="" />
+                            <h2>Kandidati 1 <br /></h2>
+                        </header>
+                        <p>Kandidati me përkushtim për të promovuar transparencën dhe zhvillimin demokratik.</p>
+                        <ul class="actions">
+                            <li><a href="#" class="button">Voto Kandidatin</a></li>
+                        </ul>
+                    </section>
+                    <section class="col-6 col-12-narrower feature">
+                        <header>
+                            <img style="width: 200px ;border-radius: 50%;height: 200px;" src="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg" alt="" />
+                            <h2>Kandidati 2<br /></h2>
+                        </header>
+                        <p>Lider me një vizion të qartë për një të ardhme më të ndritshme.</p>
+                        <ul class="actions">
+                            <li><a href="#" class="button">Voto Kandidatin</a></li>
+                        </ul>
+                    </section>
+                    <section class="col-6 col-12-narrower feature">
+                        <header>
+                            <img style="width: 200px ;border-radius: 50%;height: 200px;" src="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg" alt="" />
+                            <h2>Kandidati 3<br /></h2>
+                        </header>
+                        <p>Një kandidat i përkushtuar për të përfaqësuar zërin e komunitetit.</p>
+                        <ul class="actions">
+                            <li><a href="#" class="button">Voto Kandidatin</a></li>
+                        </ul>
+                    </section>
+                    <section class="col-6 col-12-narrower feature">
+                        <header>
+                            <img style="width: 200px ;border-radius: 50%;height: 200px;" src="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg" alt="" />
+                            <h2>Kandidati 4<br /></h2>
+                        </header>
+                        <p>Me një përvojë të gjatë dhe të suksesshme në shërbimin publik.</p>
+                        <ul class="actions">
+                            <li><a href="#" class="button">Voto Kandidatin</a></li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+     
+        <div id="promo-wrapper">
+            <section id="promo">
+                <h2>Votoni për një të ardhme më të mirë</h2>
+                <a href="#" class="button">Bashkohuni në proces</a>
+            </section>
+        </div>
+
+        
+        <div class="wrapper">
+            <section class="container">
+                <header class="major">
+                    <h2>Ne bashkëpunim me platformën Ekosova</h2>
+                    <p>Faqe inovative që lehtësojnë procesin e votimit dhe informojnë qytetarët për kandidatët.</p>
+                </header>
+                <div class="row features">
+                    <section class="col-4 col-12-narrower feature">
+                        <div class="image-wrapper first">
+                            <a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+                        </div>
+                        <p>Për të votuar, thjesht regjistrohuni dhe zgjidhni tre kandidatët që mendoni se meritojnë votën tuaj.</p>
+                    </section>
+                    <section class="col-4 col-12-narrower feature">
+                        <div class="image-wrapper">
+                            <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+                        </div>
+                        <p>Votimi online është i sigurt, transparent dhe i thjeshtë për t'u përdorur.</p>
+                    </section>
+                    <section class="col-4 col-12-narrower feature">
+                        <div class="image-wrapper">
+                            <a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
+                        </div>
+                        <p>Mundësia për të parë rezultatet live dhe për të ndjekur procesin në kohë reale.</p>
+                    </section>
+                </div>
+            </section>
+        </div>
+
+  
+        <div id="footer-wrapper">
+            <div id="footer" class="container">
+                <header class="major">
+                    <h2 style="color: red;">Kontakt</h2>
+                    <p style="color: white;">Nëse hasni vështirësi me platformën tonë, kontaktoni dhe ne do t'ju ndihmojmë menjëherë.</p>
+                </header>
+                <div style="color: white;" class="row">
+                    <section class="col-6 col-12-narrower">
+                        <form method="post" action="#">
+                            <div class="row gtr-50">
+                                <div class="col-6 col-12-mobile">
+                                    <input name="Emri" placeholder="Emri" type="text" />
+                                </div>
+                                <div class="col-6 col-12-mobile">
+                                    <input name="email" placeholder="Email" type="text" />
+                                </div>
+                                <div class="col-12">
+                                    <textarea name="Mesazhi" placeholder="Mesazhi"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <ul class="actions">
+                                        <li><input type="submit" value="Dergo Mesazhin" /></li>
+                                        <li><input type="reset" value="Fshij shënimet" /></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ 
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script>
+        function showToast(message, type) {
+            Toastify({
+                text: message,
+                gravity: "top",
+                position: "right",
+                backgroundColor: type === "success" ? "green" : "red",
+                stopOnFocus: true,
+            }).showToast();
+        }
+    </script>
+</body>
+</html>

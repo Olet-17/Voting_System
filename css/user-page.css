@@ -1,0 +1,136 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 24px;
+}
+
+.content {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 900px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+
+h1 {
+    text-align: center;
+    color: #007BFF;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+
+#candidatesList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+
+.candidate-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.candidate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.candidate-card h3 {
+    color: #333;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.candidate-card p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.vote-checkbox {
+    margin-top: 10px;
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+#submitVote {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 20px;
+    font-size: 18px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#submitVote:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+#submitVote:hover:not(:disabled) {
+    background: #218838;
+}
+
+
+#message {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #e74c3c; 
+    margin-top: 20px;
+}
+
+#message.success {
+    color: #28a745; 
+}
+/* Live Poll Button */
+#livePollButton {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 20px;
+    font-size: 18px;
+    background: #ff5733; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#livePollButton:hover {
+    background: #e84321; 
+}
