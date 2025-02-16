@@ -110,7 +110,6 @@ async function login() {
        
         loginButton.disabled = false;
         loginButton.textContent = "Login";
-    }
+    }
 }
-
 

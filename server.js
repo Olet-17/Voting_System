@@ -80,41 +80,28 @@ app.get('/candidates', async (req, res) => {
 
 // Votimi i kandidateve
 app.post('/vote', async (req, res) => {
-    const { username, password, candidateIds } = req.body;
+    const { username, candidateIds } = req.body;
 
-    // Validimi i inputeve
-    if (!username || !password || !candidateIds || candidateIds.length !== 3) {
-        return res.status(400).json({ message: "You must vote for exactly 3 candidates." });
+    if (!username || !candidateIds || candidateIds.length !== 3) {
+        return res.status(400).json({ message: "Invalid request data." });
     }
 
-    try {
-        
-        let user = await User.findOne({ username, password });
-
-        
-        if (!user) {
-            user = new User({ username, password, hasVoted: false });
-        }
-
-        
-        if (user.hasVoted) {
-            return res.status(403).json({ message: "You have already voted." });
-        }
-
-       
-        user.hasVoted = true;
-        await user.save();
-
-       
-        await Candidate.updateMany(
-            { _id: { $in: candidateIds } },
-            { $inc: { votes: 1 } }
-        );
-
-        res.status(200).json({ message: "Your votes have been submitted successfully!" });
-    } catch (err) {
-        res.status(500).json({ message: "Error voting.", error: err });
+    const user = await User.findOne({ username });
+    if (!user || user.hasVoted) {
+        return res.status(403).json({ message: "You are not allowed to vote." });
     }
+
+    // Mark the user as having voted
+    user.hasVoted = true;
+    await user.save();
+
+    // Increment votes for the candidates
+    await Candidate.updateMany(
+        { _id: { $in: candidateIds } },
+        { $inc: { votes: 1 } }
+    );
+
+    res.status(200).json({ message: "Your votes have been submitted successfully!" });
 });
 
 // Regjistrimi i userave
@@ -136,15 +123,16 @@ app.post('/register', async (req, res) => {
 
 // Logimii useris
 app.post('/login', async (req, res) => {
-  const { username, password } = req.body;
+    const { username, password } = req.body;
 
-  // Kerkimi i userit ne databaz
-  const user = await User.findOne({ username, password });
-  if (!user) {
-      return res.status(400).json({ message: 'Invalid username or password.' });
-  }
+    // Kontrollo në databazë
+    const user = await User.findOne({ username });
+    if (!user || user.password !== password) {
+        return res.status(400).json({ message: 'Invalid username or password.' });
+    }
 
-  res.status(200).json({ message: 'Login successful!' });
+    // Kthe mesazhin e suksesit
+    res.status(200).json({ message: 'Login successful!' });
 });
 
 

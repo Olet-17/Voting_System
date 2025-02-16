@@ -1,59 +1,238 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
+    background: linear-gradient(120deg, #6c95e0, #7096ff);
+    overflow: hidden;
+    position: relative;
 }
 
+/* Animated Background Particles */
+body::before {
+    content: "";
+    position: absolute;
+    width: 200vw;
+    height: 200vh;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 10%, rgba(0, 0, 0, 0) 70%);
+    animation: rotateBackground 20s linear infinite;
+}
+
+/* Background Animation */
+@keyframes rotateBackground {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Floating Form Container */
 .container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    background: rgba(18, 96, 184, 0.5); 
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
     text-align: center;
+    width: 90%;
+    max-width: 400px;
+    animation: floatEffect 3s ease-in-out infinite alternate;
 }
 
+/* Floating Animation */
+@keyframes floatEffect {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(10px); }
+}
+
+/* Soft Glow Effect */
+.container:hover {
+    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.3);
+}
+
+/* Heading */
 h1 {
-    color: #333;
+    font-size: 26px;
+    color: white;
+    margin-bottom: 20px;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-}
-
+/* Labels */
 label {
+    display: block;
     text-align: left;
-    margin-bottom: 5px;
+    margin-top: 15px;
+    font-weight: bold;
+    color: white;
 }
 
-input {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+/* Input Fields */
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    outline: none;
+    transition: all 0.3s;
+}
+
+input::placeholder, textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+input:focus, textarea:focus {
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Button with Hover Effect */
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    background: linear-gradient(45deg, #2456a8, #1a3d7c);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s ease-in-out;
+}
+
+/* Button Glow on Hover */
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Button Click Ripple Effect */
+button:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+    }
+}
+.input-container {
+    position: relative;
     width: 100%;
 }
 
-button {
-    background-color: #4CAF50;
+.input-container input {
+    padding-left: 40px;
+}
+
+.input-container i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
     color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
+}
+/* Floating Particles Animation */
+@keyframes floatParticles {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
 }
 
-button:hover {
-    background-color: #45a049;
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    animation: floatParticles 5s infinite ease-in-out;
 }
 
-#message {
-    margin-top: 20px;
-    color: #333;
-    font-weight: bold;
+/* Generating multiple particles with random positions */
+.particle:nth-child(1) {
+    left: 10%;
+    top: 20%;
+    animation-duration: 6s;
 }
+.particle:nth-child(2) {
+    left: 25%;
+    top: 60%;
+    animation-duration: 7s;
+}
+.particle:nth-child(3) {
+    left: 50%;
+    top: 10%;
+    animation-duration: 5s;
+}
+.particle:nth-child(4) {
+    left: 75%;
+    top: 40%;
+    animation-duration: 6s;
+}
+.particle:nth-child(5) {
+    left: 90%;
+    top: 70%;
+    animation-duration: 8s;
+}
+.particle:nth-child(6) {
+    left: 35%;
+    top: 80%;
+    animation-duration: 5s;
+}
+.particle:nth-child(7) {
+    left: 60%;
+    top: 50%;
+    animation-duration: 7s;
+}
+.particle:nth-child(8) {
+    left: 15%;
+    top: 30%;
+    animation-duration: 6s;
+}
+.particle:nth-child(9) {
+    left: 85%;
+    top: 20%;
+    animation-duration: 5s;
+}
+.particle:nth-child(10) {
+    left: 45%;
+    top: 90%;
+    animation-duration: 8s;
+}
+@keyframes neonGlow {
+    0% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.2); }
+    50% { box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); }
+    100% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.2); }
+}
+
+.container {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    animation: neonGlow 2s infinite alternate;
+}
+
+input, textarea {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: 0.3s ease-in-out;
+}
+
+input:focus, textarea:focus {
+    border: 1px solid white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+

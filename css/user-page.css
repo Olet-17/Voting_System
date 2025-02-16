@@ -83,6 +83,21 @@ h2 {
     cursor: pointer;
 }
 
+.button-wrapper{
+    position: relative;
+    width: 200px;
+    height: 60px;
+    margin-left: 350px;
+}
+
+.button-wrapper canvas{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
 #submitVote {
     display: block;
     margin: 20px auto;
@@ -105,6 +120,22 @@ h2 {
     background: #218838;
 }
 
+#back-button{
+    display: block;
+    margin: 20px auto;
+    padding: 12px 20px;
+    font-size: 18px;
+    background: #48a6f3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
 
 #message {
     text-align: center;

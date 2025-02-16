@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/user-page.css">
     <script defer src="../js/user-page.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
 </head>
@@ -20,11 +21,14 @@
     <div class="content">
         <h2>Select Exactly Three Candidates</h2>
         <ul id="candidatesList"></ul>
-        <button id="submitVote" disabled>Submit Vote</button>
+        <div class="button-wrapper">
+            <button id="submitVote" class="confetti-button" disabled>Submit Vote</button>
+        </div>
         <p id="message"></p>
 
-      
         <button id="livePollButton" onclick="goToLivePoll()">Live Poll</button>
+
+        <button id="back-button"><a href="main.html">Go back to main page</a></button>
     </div>
 
     <script>
@@ -32,6 +36,18 @@
         function goToLivePoll() {
             window.location.href = "live-poll.html";
         }
+
+        // Confetti button
+        document.getElementsByClassName("confetti-button")[0].addEventListener("click",()=>{
+            let canvas=document.createElement("canvas");
+            canvas.width=700;
+            canvas.height=700;
+            let container=document.getElementsByClassName("button-wrapper")[0];
+            container.appendChild(canvas);
+
+            let confetti_button=confetti.create(canvas);
+            confetti_button().then(()=> container.removeChild(canvas));
+        });
     </script>
 </body>
 </html>

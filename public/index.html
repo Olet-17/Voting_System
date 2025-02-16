@@ -9,41 +9,22 @@
 
 </head>
 <body>
-    <style>
-        label{
-            margin-top: 20px;
-        }
-        h1{
-            color: white;
-        }
-        body{
-            position: relative;
-		background-image: url("images/header.svg");
-		background-image: url("images/overlay.png"), url("images/header.svg"), -moz-linear-gradient(75deg, #574c4e 15%, #F2B69D 55%);
-		background-image: url("images/overlay.png"), url("images/header.svg"), -webkit-linear-gradient(75deg, #3167b9 15%, #3e70cc 55%);
-		background-image: url("images/overlay.png"), url("images/header.svg"), -ms-linear-gradient(75deg, #2c61c2 15%, #426cc7 55%);
-		background-image: url("images/overlay.png"), url("images/header.svg"), linear-gradient(75deg, #7096ff 15%, #2464ad8f 55%);
-		background-color: #6c95e0;
-		background-size: 100% 620%;
-		background-size: 128px 128px, 100% 620%, auto;
-        }
-        .container{
-            background-color: rgba(18, 96, 184, 0.363);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex-wrap: wrap;
-            color: white;
-        }
-
-        textarea{
-            border-radius: 12px;
-   }
-    </style>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    
     <div class="container">
         <h1>Shto Kandidat</h1>
         <form id="addCandidateForm">
             <label for="candidateName">Emri i Kandidatit:</label>
+            <i class="fas fa-user"></i>
             <input type="text" id="candidateName" name="candidateName" required>
             
             <label for="candidateDescription">Përshkrimi i Kandidatit:</label>
@@ -56,6 +37,11 @@
         </form>
         <div id="message"></div>
     </div>
+
+
+
+
+    
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <script src="../js/script.js"></script> 

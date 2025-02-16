@@ -21,15 +21,25 @@ let selectedCandidates = [];
 // Lejimi i votimit
 document.addEventListener("DOMContentLoaded", function () {
     const username = localStorage.getItem("username");
-    const password = localStorage.getItem("password");
 
-    if (!username || !password) {
+    if (!username) {
         showToast("You must log in to vote!", "error");
         window.location.href = "main.html"; 
         return;
     }
 
     fetchCandidates();
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const username = localStorage.getItem("username");
+    console.log("Username from localStorage:", username);
+
+    if (!username) {
+        console.error("No username found in localStorage. Redirecting...");
+        window.location.href = "main.html";
+    } else {
+        console.log("User is logged in as:", username);
+    }
 });
 
 // Marja e kandidateve 
@@ -91,54 +101,30 @@ function handleCheckboxChange(event) {
 
 // Funksioni i submitit te voteve
 async function submitVote() {
-    if (selectedCandidates.length !== 3) {
-        showToast("You must select exactly 3 candidates.", "error");
-        return;
-    }
+    const username = localStorage.getItem("username");
 
-    const storedUsername = localStorage.getItem("username");
-    const storedPassword = localStorage.getItem("password");
-
-    if (!storedUsername || !storedPassword) {
+    if (!username) {
         showToast("You need to log in before voting.", "error");
         window.location.href = "main.html";
         return;
     }
 
-    const submitButton = document.getElementById("submitVote");
+    const response = await fetch("http://localhost:3000/vote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            username,
+            candidateIds: selectedCandidates, // Only send username and candidate IDs
+        }),
+    });
 
-    try {
-      
-        submitButton.disabled = true;
-        submitButton.textContent = "Submitting...";
+    const data = await response.json();
 
-        const response = await fetch("http://localhost:3000/vote", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                username: storedUsername,
-                password: storedPassword,
-                candidateIds: selectedCandidates,
-            }),
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-            showToast("Vote submitted successfully!", "success");
-            selectedCandidates = [];
-            fetchCandidates(); 
-        } else {
-            showToast(`Error: ${data.message}`, "error");
-        }
-    } catch (error) {
-        console.error("Error submitting vote:", error);
-        showToast("An error occurred while submitting your vote.", "error");
-    } finally {
-    
-        submitButton.disabled = false;
-        submitButton.textContent = "Submit Vote";
-    }
+    if (response.ok) {
+        showToast("Vote submitted successfully!", "success");
+        selectedCandidates = [];
+        fetchCandidates(); // Refresh candidate data
+    } else {
+        showToast(data.message || "Failed to submit your vote.", "error");
+    }
 }

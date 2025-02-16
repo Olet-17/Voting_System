@@ -50,3 +50,20 @@ canvas {
     max-width: 100%;
     height: auto;
 }
+
+#back-button{
+    display: block;
+    margin: 20px auto;
+    padding: 12px 20px;
+    font-size: 18px;
+    background: #48a6f3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+a{
+    text-decoration: none;
+    color: white;
+}

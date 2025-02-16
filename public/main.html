@@ -9,7 +9,312 @@
     
     <!-- Toastify.js CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
 </head>
+<style>
+    footer{
+    position: relative ;
+    background: rgb(132,160,240);
+    width: 100%;
+    bottom: -190px;
+    left: 0;
+  }
+  footer::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 100px;
+    height: 1px;
+    width: 100%;
+    background: #AFAFB6;
+  }
+  footer .content{
+    max-width: 1250px;
+    margin: auto;
+    padding: 30px 40px 40px 40px;
+  }
+  footer .content .top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
+  .content .top .logo-details{
+    color: #fff;
+    font-size: 30px;
+  }
+  .content .top .media-icons{
+    display: flex;
+  }
+  .content .top .media-icons a{
+    height: 40px;
+    width: 40px;
+    margin: 0 8px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    font-size: 17px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+  }
+  .top .media-icons a:nth-child(1){
+    background: #4267B2;
+  }
+  .top .media-icons a:nth-child(1):hover{
+    color: #4267B2;
+    background: #fff;
+  }
+  .top .media-icons a:nth-child(2){
+    background: #1DA1F2;
+  }
+  .top .media-icons a:nth-child(2):hover{
+    color: #1DA1F2;
+    background: #fff;
+  }
+  .top .media-icons a:nth-child(3){
+    background: #E1306C;
+  }
+  .top .media-icons a:nth-child(3):hover{
+    color: #E1306C;
+    background: #fff;
+  }
+  .top .media-icons a:nth-child(4){
+    background: #0077B5;
+  }
+  .top .media-icons a:nth-child(4):hover{
+    color: #0077B5;
+    background: #fff;
+  }
+  .top .media-icons a:nth-child(5){
+    background: #FF0000;
+  }
+  .top .media-icons a:nth-child(5):hover{
+    color: #FF0000;
+    background: #fff;
+  }
+  footer .content .link-boxes{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  footer .content .link-boxes .box{
+    width: calc(100% / 5 - 10px);
+  }
+  .content .link-boxes .box .link_name{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .link-boxes .box .link_name::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 2px;
+    width: 35px;
+    background: #fff;
+  }
+  .content .link-boxes .box li{
+    margin: 6px 0;
+    list-style: none;
+  }
+  .content .link-boxes .box li a{
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: all 0.4s ease
+  }
+  .content .link-boxes .box li a:hover{
+    opacity: 1;
+    text-decoration: underline;
+  }
+  .content .link-boxes .input-box{
+    margin-right: 55px;
+  }
+  .link-boxes .input-box input{
+    height: 40px;
+    width: calc(100% + 55px);
+    outline: none;
+    border: 2px solid #AFAFB6;
+    background: #007BFF;
+    border-radius: 4px;
+    padding: 0 15px;
+    font-size: 15px;
+    color: #fff;
+    margin-top: 5px;
+  }
+  .link-boxes .input-box input::placeholder{
+    color: #AFAFB6;
+    font-size: 16px;
+  }
+  .link-boxes .input-box input[type="button"]{
+    background: #fff;
+    color: #140B5C;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 4px 0;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: all 0.4s ease;
+  }
+  .input-box input[type="button"]:hover{
+    opacity: 1;
+  }
+  footer .bottom-details{
+    width: 100%;
+    background: rgb(132,160,240);
+  }
+  footer .bottom-details .bottom_text{
+    max-width: 1250px;
+    margin: auto;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .bottom-details .bottom_text span,
+  .bottom-details .bottom_text a{
+    font-size: 14px;
+    font-weight: 300;
+    color: #fff;
+    opacity: 0.8;
+    text-decoration: none;
+  }
+  .bottom-details .bottom_text a:hover{
+    opacity: 1;
+    text-decoration: underline;
+  }
+  .bottom-details .bottom_text a{
+    margin-right: 10px;
+  }
+  @media (max-width: 900px) {
+    footer .content .link-boxes{
+      flex-wrap: wrap;
+    }
+    footer .content .link-boxes .input-box{
+      width: 40%;
+      margin-top: 10px;
+    }
+  }
+  @media (max-width: 700px){
+    footer{
+      position: relative;
+    }
+    .content .top .logo-details{
+      font-size: 26px;
+    }
+    .content .top .media-icons a{
+      height: 35px;
+      width: 35px;
+      font-size: 14px;
+      line-height: 35px;
+    }
+    footer .content .link-boxes .box{
+      width: calc(100% / 3 - 10px);
+    }
+    footer .content .link-boxes .input-box{
+      width: 60%;
+    }
+    .bottom-details .bottom_text span,
+    .bottom-details .bottom_text a{
+      font-size: 12px;
+    }
+  }
+  @media (max-width: 520px){
+    footer::before{
+      top: 145px;
+    }
+    footer .content .top{
+      flex-direction: column;
+    }
+    .content .top .media-icons{
+      margin-top: 16px;
+    }
+    footer .content .link-boxes .box{
+      width: calc(100% / 2 - 10px);
+    }
+    footer .content .link-boxes .input-box{
+      width: 100%;
+    }
+  }
+
+
+
+
+
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.footer-left {
+    width: 40%;
+    color: white;
+}
+
+.footer-left h2 {
+    font-size: 22px;
+    margin-bottom: 0px;
+}
+
+.footer-left p {
+    font-size: 16px;
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+.footer-links {
+    width: 40%;
+}
+
+.footer-links h3 {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 5px;
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+    color: white;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.footer-links ul li a:hover {
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
 <body>
     <div id="page-wrapper">
 
@@ -23,7 +328,7 @@
                 
                 <nav id="nav">
                     <ul>
-                        <li><a href="index.html">Apliko për Kandidat</a></li>
+                        <li><a href="#">Apliko për Kandidat</a></li>
                         <li class="break"><a href="live-poll.html">Live Poll</a></li>
                     </ul>
                 </nav>
@@ -43,55 +348,56 @@
 
 
         <div class="wrapper">
-            <div class="login-container">
-                <h1>Regjistrohu ose Kyçu për të marrë pjesë në Votim</h1>
-                <input type="text" id="username" placeholder="Enter Username">
-                <input type="password" id="password" placeholder="Enter Password">
-                <button onclick="login()" style="background-color: rgba(0, 128, 0, 0.562); color: white;">Login</button>
-                <button onclick="register()" style="background-color: rgba(12, 92, 197, 0.589); color: white;">Register</button>
-                <p class="error" id="error-message"></p>
-                
-            </div>
+            <section id="logsec">
+                <div class="login-container">
+                    <h1>Regjistrohu ose Kyçu për të marrë pjesë në Votim</h1>
+                    <input type="text" id="username" placeholder="Enter Username">
+                    <input type="password" id="password" placeholder="Enter Password">
+                    <button onclick="login()" style="background-color: rgba(0, 128, 0, 0.562); color: white;">Login</button>
+                    <button onclick="register()" style="background-color: rgba(12, 92, 197, 0.589); color: white;">Register</button>
+                    <p class="error" id="error-message"></p>
+                </div>
+            </section>
             <div class="container">
                 <div class="row">
                     <section class="col-6 col-12-narrower feature">
                         <header>
-                            <img style="width: 200px ;border-radius: 50%;height: 200px;" src="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg" alt="" />
+                            <img style="width: 200px ;border-radius: 50%;height: 200px;" src="/images/Albin Kurti.png" alt="" />
                             <h2>Kandidati 1 <br /></h2>
                         </header>
                         <p>Kandidati me përkushtim për të promovuar transparencën dhe zhvillimin demokratik.</p>
                         <ul class="actions">
-                            <li><a href="#" class="button">Voto Kandidatin</a></li>
+                            <li><a href="#logsec" class="button">Voto Kandidatin</a></li>
                         </ul>
                     </section>
                     <section class="col-6 col-12-narrower feature">
                         <header>
-                            <img style="width: 200px ;border-radius: 50%;height: 200px;" src="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg" alt="" />
+                            <img style="width: 200px ;border-radius: 50%;height: 200px;" src="/images/Ramushi.png" alt="" />
                             <h2>Kandidati 2<br /></h2>
                         </header>
                         <p>Lider me një vizion të qartë për një të ardhme më të ndritshme.</p>
                         <ul class="actions">
-                            <li><a href="#" class="button">Voto Kandidatin</a></li>
+                            <li><a href="#logsec" class="button">Voto Kandidatin</a></li>
                         </ul>
                     </section>
                     <section class="col-6 col-12-narrower feature">
                         <header>
-                            <img style="width: 200px ;border-radius: 50%;height: 200px;" src="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg" alt="" />
+                            <img style="width: 200px ;border-radius: 50%;height: 200px;" src="/images/Bedrija.png" alt="" />
                             <h2>Kandidati 3<br /></h2>
                         </header>
                         <p>Një kandidat i përkushtuar për të përfaqësuar zërin e komunitetit.</p>
                         <ul class="actions">
-                            <li><a href="#" class="button">Voto Kandidatin</a></li>
+                            <li><a href="#logsec" class="button">Voto Kandidatin</a></li>
                         </ul>
                     </section>
                     <section class="col-6 col-12-narrower feature">
                         <header>
-                            <img style="width: 200px ;border-radius: 50%;height: 200px;" src="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg" alt="" />
+                            <img style="width: 200px ;border-radius: 50%;height: 200px;" src="/images/Lumiri.png" alt="" />
                             <h2>Kandidati 4<br /></h2>
                         </header>
                         <p>Me një përvojë të gjatë dhe të suksesshme në shërbimin publik.</p>
                         <ul class="actions">
-                            <li><a href="#" class="button">Voto Kandidatin</a></li>
+                            <li><a href="#logsec" class="button">Voto Kandidatin</a></li>
                         </ul>
                     </section>
                 </div>
@@ -102,7 +408,7 @@
         <div id="promo-wrapper">
             <section id="promo">
                 <h2>Votoni për një të ardhme më të mirë</h2>
-                <a href="#" class="button">Bashkohuni në proces</a>
+                <a href="#logsec" class="button">Bashkohuni në proces</a>
             </section>
         </div>
 
@@ -135,10 +441,13 @@
                 </div>
             </section>
         </div>
+        
+        <!-- Back to top button -->
 
+        <button id="backToTop">↑</button>
   
         <div id="footer-wrapper">
-            <div id="footer" class="container">
+            <form action="https://api.web3forms.com/submit" method="POST" id="footer" class="container">
                 <header class="major">
                     <h2 style="color: red;">Kontakt</h2>
                     <p style="color: white;">Nëse hasni vështirësi me platformën tonë, kontaktoni dhe ne do t'ju ndihmojmë menjëherë.</p>
@@ -147,6 +456,7 @@
                     <section class="col-6 col-12-narrower">
                         <form method="post" action="#">
                             <div class="row gtr-50">
+                                <input type="hidden" name="access_key" value="e3ccbb0a-4519-4bde-97c1-6c6b42362474">
                                 <div class="col-6 col-12-mobile">
                                     <input name="Emri" placeholder="Emri" type="text" />
                                 </div>
@@ -167,9 +477,63 @@
                     </section>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
-
+  <!-- Loading Screen with Spinner -->
+<div id="loadingOverlay">
+    <div class="spinner"></div>
+</div>
+<footer>
+    <div class="content">
+      <div class="top">
+        <div class="logo-details">
+          <i class="fab fa-slack"></i>
+          <span class="logo_name">E-Kosova</span>
+        </div>
+          
+        <div class="media-icons">
+          <a href="https://www.facebook.com/ekosovaplatform/"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/eKosovaplatform"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/ekosovaplatform/?hl=en"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@ekosova2149"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="link-boxes">
+        <ul class="box">
+          <li class="link_name">E-Kosova</li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Get started</a></li>
+        </ul>
+        
+        <div class="footer-content">
+            <div class="footer-center">
+                <h2>Faleminderit për mbështetjen tuaj!</h2>
+                <p>
+                    Ne jemi mirënjohës që jeni pjesë e kësaj platforme dhe kontribuoni në një proces votimi më të ndershëm dhe transparent.
+                    Qëllimi ynë është t’ju ofrojmë një përvojë të sigurt dhe të lehtë në çdo hap të procesit të votimit. 
+                </p>
+                <p>
+                    Së bashku, mund të ndërtojmë një të ardhme më të ndritshme duke u angazhuar në mënyrë aktive dhe duke dhënë një zë për ndryshim.
+                    Faleminderit për besimin tuaj dhe për pjesëmarrjen në këtë iniciativë të rëndësishme.
+                </p>
+                <p><strong>#DemokraciaFillonMeTy</strong></p>
+            </div>
+        </div>
+    
+      </div>
+    </div>
+    <div class="bottom-details">
+      <div class="bottom_text">
+        <span class="copyright_text">Copyright © 2025 <a href="#">jCoders.</a>All rights reserved</span>
+        <span class="policy_terms">
+          <a href="#">Privacy policy</a>
+          <a href="#">Terms & condition</a>
+        </span>
+      </div>
+    </div>
+  </footer>
  
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.dropotron.min.js"></script>
@@ -179,6 +543,7 @@
     <script src="assets/js/main.js"></script>
     <script src="/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
     <script>
         function showToast(message, type) {
             Toastify({
@@ -189,6 +554,52 @@
                 stopOnFocus: true,
             }).showToast();
         }
+        document.querySelector("form").addEventListener("submit", async function (e) {
+    e.preventDefault(); // Prevent default form submission
+
+    const formData = new FormData(this);
+    const loadingOverlay = document.getElementById("loadingOverlay");
+
+    // Show loading screen with spinner
+    loadingOverlay.style.display = "flex";
+
+    try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+
+        const result = await response.json();
+        loadingOverlay.style.display = "none"; // Hide loading screen
+
+        if (result.success) {
+            showToast("✅ Mesazhi u dërgua me sukses!", "success");
+        } else {
+            showToast("❌ Gabim në dërgimin e mesazhit. Provoni përsëri!", "error");
+        }
+    } catch (error) {
+        loadingOverlay.style.display = "none"; // Hide loading screen
+        showToast("⚠️ Diçka shkoi keq! Ju lutemi provoni përsëri.", "error");
+    }
+
+    this.reset(); // Clear form fields after submission
+});
+    
+    // Back to top button
+
+    let backToTopButton = document.getElementById("backToTop");
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        };
+
+        backToTopButton.addEventListener("click", function() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
     </script>
 </body>
 </html>
