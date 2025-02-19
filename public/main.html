@@ -10,12 +10,14 @@
     <!-- Toastify.js CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
 
 </head>
 <style>
     footer{
     position: relative ;
-    background: rgb(132,160,240);
+    background: rgba(78,116,183,255);
     width: 100%;
     bottom: -190px;
     left: 0;
@@ -39,6 +41,12 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 50px;
+  }
+  .lu{
+    padding-right: 100px;
+  }
+  .break{
+    padding-right: 90px;
   }
   .content .top .logo-details{
     color: #fff;
@@ -169,7 +177,9 @@
   }
   footer .bottom-details{
     width: 100%;
-    background: rgb(132,160,240);
+    background: rgba(78,116,183,255)
+
+;
   }
   footer .bottom-details .bottom_text{
     max-width: 1250px;
@@ -302,15 +312,101 @@
 .footer-links ul li a:hover {
     opacity: 1;
 }
+.footer-center {
+  color: #fff;
+}
+.tx1{
+  color: #fff;
+}
+.tx2{
+  color: #fff;
+}
 
 
 
+#how-it-works {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f8f9fc;
+}
+
+.steps-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.step {
+    width: 30%;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.step h3 {
+    font-size: 2rem;
+    color: #5a67d8;
+}
+
+.step h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.step p {
+    font-size: 1rem;
+    color: #555;
+}
+
+#testimonials {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: rgba(78,116,183,255);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.testimonials-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.testimonial {
+    width: 30%;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.testimonial:hover {
+    transform: scale(1.05);
+}
+
+.testimonial p {
+    font-size: 1rem;
+    font-style: italic;
+    color: #333;
+}
+
+.testimonial h4 {
+    margin-top: 10px;
+    color: #5a67d8;
+}
 
 
-
-
-
-
+.Users1{
+  color: white;
+}
 
 
 
@@ -328,7 +424,7 @@
                 
                 <nav id="nav">
                     <ul>
-                        <li><a href="#">Apliko për Kandidat</a></li>
+                        <li class="lu"><a href="#">Apliko për Kandidat</a></li>
                         <li class="break"><a href="live-poll.html">Live Poll</a></li>
                     </ul>
                 </nav>
@@ -348,24 +444,15 @@
 
 
         <div class="wrapper">
-            <section id="logsec">
-                <div class="login-container">
-                    <h1>Regjistrohu ose Kyçu për të marrë pjesë në Votim</h1>
-                    <input type="text" id="username" placeholder="Enter Username">
-                    <input type="password" id="password" placeholder="Enter Password">
-                    <button onclick="login()" style="background-color: rgba(0, 128, 0, 0.562); color: white;">Login</button>
-                    <button onclick="register()" style="background-color: rgba(12, 92, 197, 0.589); color: white;">Register</button>
-                    <p class="error" id="error-message"></p>
-                </div>
-            </section>
+            
             <div class="container">
-                <div class="row">
-                    <section class="col-6 col-12-narrower feature">
+                <div class="row" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
+                    <section class="col-6 col-12-narrower feature" >
                         <header>
                             <img style="width: 200px ;border-radius: 50%;height: 200px;" src="/images/Albin Kurti.png" alt="" />
                             <h2>Kandidati 1 <br /></h2>
                         </header>
-                        <p>Kandidati me përkushtim për të promovuar transparencën dhe zhvillimin demokratik.</p>
+                        <p>Kandidati me përkushtim për të promovuar zhvillimin demokratik.</p>
                         <ul class="actions">
                             <li><a href="#logsec" class="button">Voto Kandidatin</a></li>
                         </ul>
@@ -404,8 +491,37 @@
             </div>
         </div>
 
+
+        <section id="how-it-works" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
+          <h2>How does it work?</h2>
+          <p>Our voting system is designed to be secure, simple, and efficient. Here’s how it works:</p>
+          
+          <div class="steps-container">
+              <div class="step">
+                  <h3>01</h3>
+                  <h4>Konfigurimi i Zgjedhjeve</h4>
+                  <p>Para se të fillojë votimi, administratori përcakton detajet kryesore të zgjedhjeve. Ai cakton datën dhe kohën e fillimit dhe përfundimit, listën e kandidatëve dhe metodën e autentifikimit për votuesit, duke siguruar që vetëm personat e autorizuar mund të marrin pjesë. Për të parandaluar aksesin e paautorizuar, në sistem ngarkohet një bazë e dhënash e sigurt me votuesit e pranueshëm. Përpara se të hapet votimi, sistemi mund të testohet për të garantuar saktësinë dhe funksionalitetin e tij. Gjithashtu, admini ka mundësinë të aktivizojë monitorimin e votave në kohë reale, duke rritur transparencën e procesit.</p>
+              </div>
+      
+              <div class="step">
+                  <h3>02</h3>
+                  <h4>Procesi i Votimit</h4>
+                  <p>Kur zgjedhjet fillojnë, votuesit hyjnë në platformën e votimit duke u autentifikuar përmes metodës së zgjedhur nga administratori. Përdoruesit mund të identifikohen përmes një ID-je unike, një verifikimi me email ose një kodi të dërguar përmes një sistemi të sigurt OTP. Pasi të jenë identifikuar me sukses, ata mund të zgjedhin kandidatët e tyre nga një fletë votimi e sigurt dhe e pandryshueshme. Çdo votë kriptografohet për të mbajtur anonimatin e votuesit dhe ruhet në mënyrë të sigurt në sistem, duke parandaluar manipulimin e të dhënave. Pas përfundimit të votimit, përdoruesi merr një faturë dixhitale si provë që vota e tij është regjistruar me sukses. Për të ruajtur ndershmërinë e procesit, sistemi nuk lejon ndryshime apo ridërgim të votave pasi ato janë regjistruar.</p>
+              </div>
+      
+              <div class="step">
+                  <h3>03</h3>
+                  <h4>Rezultatet & Transparenca</h4>
+                  <p>Në momentin që zgjedhjet përfundojnë, sistemi numëron automatikisht votat duke eliminuar nevojën për numërim manual. Administratorët kanë akses në raporte të detajuara që përfshijnë numrin total të votave, shkallën e pjesëmarrjes së votuesve dhe shpërndarjen e votave për secilin kandidat. Pasi rezultatet janë verifikuar, ato publikohen në platformën e zgjedhjeve, ku mund të konsultohen nga të gjithë pjesëmarrësit. Për të garantuar një transparencë maksimale, sistemi ofron mundësinë e shkarkimit të një skedari sigurie që përmban të dhënat e votave dhe kodet përkatëse të faturave të votuesve. Për më tepër, nëse aktivizohet, një panel me rezultate në kohë reale mund të shfaqë përditësimet e votave në momentin që ato numërohen, duke siguruar një proces të hapur dhe të drejtë për të gjithë.
+
+                    Ky sistem siguron një përvojë votimi të shpejtë, efikase dhe plotësisht të sigurt, duke garantuar një proces zgjedhor të drejtë dhe të besueshëm.</p>
+              </div>
+          </div>
+      </section>
+      
+
      
-        <div id="promo-wrapper">
+        <div id="promo-wrapper" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
             <section id="promo">
                 <h2>Votoni për një të ardhme më të mirë</h2>
                 <a href="#logsec" class="button">Bashkohuni në proces</a>
@@ -413,7 +529,7 @@
         </div>
 
         
-        <div class="wrapper">
+        <div class="wrapper" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
             <section class="container">
                 <header class="major">
                     <h2>Ne bashkëpunim me platformën Ekosova</h2>
@@ -421,20 +537,20 @@
                 </header>
                 <div class="row features">
                     <section class="col-4 col-12-narrower feature">
-                        <div class="image-wrapper first">
-                            <a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+                        <div class="image-wrapper">
+                            <img class="pic" src="images/pic3.png" alt="" /></a>
                         </div>
                         <p>Për të votuar, thjesht regjistrohuni dhe zgjidhni tre kandidatët që mendoni se meritojnë votën tuaj.</p>
                     </section>
                     <section class="col-4 col-12-narrower feature">
                         <div class="image-wrapper">
-                            <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+                            <img class="pic" src="images/pic4.png" alt="" />
                         </div>
                         <p>Votimi online është i sigurt, transparent dhe i thjeshtë për t'u përdorur.</p>
                     </section>
                     <section class="col-4 col-12-narrower feature">
                         <div class="image-wrapper">
-                            <a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
+                            <img class="pic" src="images/pic5.png" alt="" />
                         </div>
                         <p>Mundësia për të parë rezultatet live dhe për të ndjekur procesin në kohë reale.</p>
                     </section>
@@ -442,11 +558,44 @@
             </section>
         </div>
         
-        <!-- Back to top button -->
 
-        <button id="backToTop">↑</button>
-  
-        <div id="footer-wrapper">
+        <section id="testimonials">
+          <h2 class="Users1" data-aos="fade-up">What Users Said About This</h2>
+          <p class="subtitle" data-aos="fade-up" data-aos-delay="200">
+              Real experiences from people who have used our voting system.
+          </p>
+      
+          <div class="testimonials-container">
+              <div class="testimonial" data-aos="fade-right" data-aos-delay="300">
+                  <p>"This voting system is incredibly easy to use! I voted in seconds without any issues." ⭐⭐⭐⭐⭐</p>
+                  <h4>- John Doe</h4>
+              </div>
+      
+              <div class="testimonial" data-aos="fade-left" data-aos-delay="500">
+                  <p>"I love how transparent and secure the process is. The live results feature is amazing!" ⭐⭐⭐⭐⭐</p>
+                  <h4>- Sarah Williams</h4>
+              </div>
+      
+              <div class="testimonial" data-aos="fade-right" data-aos-delay="700">
+                  <p>"Fast, reliable, and secure. Finally, a modern voting system we can trust!" ⭐⭐⭐⭐⭐</p>
+                  <h4>- Michael Brown</h4>
+              </div>
+          </div>
+      </section>
+      
+
+        <section id="logsec" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
+          <div class="login-container">
+              <h1>Regjistrohu ose Kyçu për të marrë pjesë në Votim</h1>
+              <input type="text" id="username" placeholder="Enter Username">
+              <input type="password" id="password" placeholder="Enter Password">
+              <button onclick="login()" style="background-color: rgba(0, 128, 0, 0.562); color: white;">Login</button>
+              <button onclick="register()" style="background-color: rgba(12, 92, 197, 0.589); color: white;">Register</button>
+              <p class="error" id="error-message"></p>
+          </div>
+      </section>
+  <section id="#Kontakti">
+        <div id="footer-wrapper" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
             <form action="https://api.web3forms.com/submit" method="POST" id="footer" class="container">
                 <header class="major">
                     <h2 style="color: red;">Kontakt</h2>
@@ -479,6 +628,7 @@
             </div>
         </form>
     </div>
+  </section>
   <!-- Loading Screen with Spinner -->
 <div id="loadingOverlay">
     <div class="spinner"></div>
@@ -502,14 +652,12 @@
         <ul class="box">
           <li class="link_name">E-Kosova</li>
           <li><a href="#">Home</a></li>
-          <li><a href="#">Contact us</a></li>
-          <li><a href="#">About us</a></li>
-          <li><a href="#">Get started</a></li>
+  
         </ul>
         
         <div class="footer-content">
             <div class="footer-center">
-                <h2>Faleminderit për mbështetjen tuaj!</h2>
+                <h2 class="tx1">Faleminderit për mbështetjen tuaj!</h2>
                 <p>
                     Ne jemi mirënjohës që jeni pjesë e kësaj platforme dhe kontribuoni në një proces votimi më të ndershëm dhe transparent.
                     Qëllimi ynë është t’ju ofrojmë një përvojë të sigurt dhe të lehtë në çdo hap të procesit të votimit. 
@@ -518,7 +666,7 @@
                     Së bashku, mund të ndërtojmë një të ardhme më të ndritshme duke u angazhuar në mënyrë aktive dhe duke dhënë një zë për ndryshim.
                     Faleminderit për besimin tuaj dhe për pjesëmarrjen në këtë iniciativë të rëndësishme.
                 </p>
-                <p><strong>#DemokraciaFillonMeTy</strong></p>
+                <p class="tx2"><strong class="tx2">#DemokraciaFillonMeTy</strong></p>
             </div>
         </div>
     
@@ -543,7 +691,15 @@
     <script src="assets/js/main.js"></script>
     <script src="/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
 
+
+    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2025/02/18/20/20250218201419-786BJNC6.js"></script>
+    
     <script>
         function showToast(message, type) {
             Toastify({
@@ -584,22 +740,6 @@
 
     this.reset(); // Clear form fields after submission
 });
-    
-    // Back to top button
-
-    let backToTopButton = document.getElementById("backToTop");
-
-        window.onscroll = function() {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                backToTopButton.style.display = "block";
-            } else {
-                backToTopButton.style.display = "none";
-            }
-        };
-
-        backToTopButton.addEventListener("click", function() {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
     </script>
 </body>
 </html>
