@@ -629,7 +629,7 @@
         </form>
     </div>
   </section>
-  <!-- Loading Screen with Spinner -->
+
 <div id="loadingOverlay">
     <div class="spinner"></div>
 </div>
@@ -711,7 +711,7 @@
             }).showToast();
         }
         document.querySelector("form").addEventListener("submit", async function (e) {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
 
     const formData = new FormData(this);
     const loadingOverlay = document.getElementById("loadingOverlay");
@@ -726,7 +726,7 @@
         });
 
         const result = await response.json();
-        loadingOverlay.style.display = "none"; // Hide loading screen
+        loadingOverlay.style.display = "none"; 
 
         if (result.success) {
             showToast("✅ Mesazhi u dërgua me sukses!", "success");
@@ -734,12 +734,14 @@
             showToast("❌ Gabim në dërgimin e mesazhit. Provoni përsëri!", "error");
         }
     } catch (error) {
-        loadingOverlay.style.display = "none"; // Hide loading screen
+        loadingOverlay.style.display = "none"; 
         showToast("⚠️ Diçka shkoi keq! Ju lutemi provoni përsëri.", "error");
     }
 
-    this.reset(); // Clear form fields after submission
+    this.reset(); 
 });
+
+
     </script>
 </body>
 </html>

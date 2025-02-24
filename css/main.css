@@ -79,3 +79,15 @@ button:hover {
     100% { transform: rotate(360deg); }
 }
 
+@media (max-width: 768px) {
+    .testimonials-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  @media (max-width: 768px) {
+    .steps-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
