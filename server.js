@@ -162,7 +162,7 @@ app.get('/live-results', async (req, res) => {
 app.get('/live-poll', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'live-poll.html'));
 });
-
+//Ni test per push
 // Stratimi i serverit
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
